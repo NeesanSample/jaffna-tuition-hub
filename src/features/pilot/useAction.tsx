@@ -1,0 +1,3 @@
+import { useState } from 'react'
+import { Feedback } from '../../components/shared/Primitives'
+export function useAction(){const [busy,setBusy]=useState(false),[error,setError]=useState(''),[message,setMessage]=useState('');async function act(work:()=>Promise<unknown>,success='Saved.'){setBusy(true);setError('');setMessage('');try{await work();setMessage(success);return true}catch(e){setError((e as Error).message);return false}finally{setBusy(false)}}return {busy,error,message,act,feedback:<>{error&&<Feedback error={error}/>} {message&&<p className="pilot-success" role="status">{message}</p>}</>}}

@@ -1,0 +1,2 @@
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+export default function OverviewChart({rows}:{rows:{name:string;students:number}[]}){return <div style={{height:240,width:'100%'}}><ResponsiveContainer><BarChart data={rows}><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="name"/><YAxis allowDecimals={false}/><Tooltip/><Bar dataKey="students" name="Active students" fill="#6366f1" radius={[5,5,0,0]} isAnimationActive={false}/></BarChart></ResponsiveContainer></div>}
